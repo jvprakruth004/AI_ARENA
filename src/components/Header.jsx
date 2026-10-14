@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckSquare, Plus, Sun, Moon, Search, Menu, X } from 'lucide-react';
+import { CheckSquare, Plus, Sun, Moon, Search, Menu, X, Palette } from 'lucide-react';
 
 export default function Header({
   searchQuery,
@@ -7,6 +7,8 @@ export default function Header({
   onOpenTaskModal,
   theme,
   onToggleTheme,
+  bgMode,
+  onToggleBgMode,
   isMobileMenuOpen,
   onToggleMobileMenu,
   totalTasks,
@@ -60,6 +62,23 @@ export default function Header({
       </div>
 
       <div className="header-right">
+        <button
+          type="button"
+          className="bg-toggle-btn"
+          onClick={onToggleBgMode}
+          aria-label="Toggle background theme"
+          title={
+            bgMode === 'deep'
+              ? 'Active: Deep Olive #3A5311 Canvas (Click for Olive & Cream)'
+              : 'Active: Olive & Cream Ambient (Click for Deep Olive #3A5311 Canvas)'
+          }
+        >
+          <Palette size={16} />
+          <span className="bg-toggle-text">
+            {bgMode === 'deep' ? 'Olive #3A5311' : 'Olive & Cream'}
+          </span>
+        </button>
+
         <button
           type="button"
           className="theme-toggle-btn"

@@ -158,13 +158,22 @@ input, textarea, select {
 .font-semibold { font-weight: 600; }
 .text-emphasis { color: var(--text-main); }
 
-/* Layout Structure */
+/* Layout Structure & #3A5311 Background System */
 .app-layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
+  background-color: #F6F5ED;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(58, 83, 17, 0.16) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(233, 196, 106, 0.24) 0px, transparent 45%),
+    radial-gradient(at 100% 100%, rgba(58, 83, 17, 0.14) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(244, 162, 97, 0.15) 0px, transparent 45%),
+    linear-gradient(180deg, #FAF8F2 0%, #F1EFE6 100%);
+  background-attachment: fixed;
+  transition: background 0.3s ease;
 }
 
 /* Header */
@@ -316,6 +325,30 @@ input, textarea, select {
 .theme-toggle-btn:hover {
   color: var(--text-main);
   background-color: var(--bg-subtle);
+}
+
+.bg-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  height: 38px;
+  padding: 0 0.875rem;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-surface);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.bg-toggle-btn:hover {
+  color: var(--text-main);
+  background-color: var(--bg-subtle);
+}
+
+.bg-toggle-text {
+  white-space: nowrap;
 }
 
 /* App Body (Sidebar + Content) */
@@ -655,12 +688,14 @@ input, textarea, select {
 }
 
 /* Completion Banner */
+/* Completion Banner - #3A5311 with Contrast Colors */
 .completion-banner {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
+  background: linear-gradient(135deg, #3A5311 0%, #283B0C 100%);
+  border: 1px solid rgba(233, 196, 106, 0.35);
   border-radius: var(--radius-lg);
-  padding: 1.25rem 1.5rem;
-  box-shadow: var(--shadow-sm);
+  padding: 1.35rem 1.6rem;
+  box-shadow: 0 4px 15px rgba(58, 83, 17, 0.22);
+  color: #FAF7EE;
 }
 
 .banner-top {
@@ -679,42 +714,44 @@ input, textarea, select {
 .banner-title {
   font-size: 0.9375rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: #FAF7EE;
 }
 
 .banner-subinfo {
   font-size: 0.8125rem;
-  color: var(--text-muted);
+  color: #DDE5D4;
 }
 
 .banner-percent-pill {
   font-size: 0.875rem;
-  font-weight: 700;
-  padding: 0.25rem 0.625rem;
-  background-color: var(--primary-light);
-  color: var(--primary);
+  font-weight: 800;
+  padding: 0.25rem 0.65rem;
+  background-color: #E9C46A;
+  color: #1A2608;
   border-radius: var(--radius-full);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .banner-progress-track {
   width: 100%;
   height: 8px;
-  background-color: var(--bg-subtle);
+  background-color: rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-full);
   overflow: hidden;
 }
 
 .banner-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--primary) 0%, #10b981 100%);
+  background: linear-gradient(90deg, #E9C46A 0%, #4EA8A4 100%);
   border-radius: var(--radius-full);
   transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .banner-motivation {
   font-size: 0.8125rem;
-  color: var(--text-secondary);
+  color: #FAF7EE;
   margin-top: 0.625rem;
+  font-weight: 500;
 }
 
 /* Filter Bar */
@@ -1799,3 +1836,139 @@ input, textarea, select {
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   DEEP OLIVE #3A5311 BACKGROUND SYSTEM WITH CONTRAST PALETTE
+   ========================================================================== */
+
+[data-bg="deep-olive"] .app-layout {
+  background-color: #3A5311;
+  background-image: 
+    radial-gradient(at 15% 15%, #4C6D17 0px, transparent 50%),
+    radial-gradient(at 90% 20%, #26380A 0px, transparent 50%),
+    radial-gradient(at 50% 90%, #1E2D07 0px, transparent 60%),
+    radial-gradient(at 95% 85%, rgba(233, 196, 106, 0.2) 0px, transparent 40%),
+    linear-gradient(145deg, #3A5311 0%, #283B0C 100%);
+  background-attachment: fixed;
+}
+
+[data-bg="deep-olive"] .view-title {
+  color: #FAF7EE;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+[data-bg="deep-olive"] .view-subtitle {
+  color: #DDE5D4;
+}
+
+[data-bg="deep-olive"] .app-header {
+  background-color: rgba(38, 54, 11, 0.94);
+  border-bottom: 1px solid rgba(233, 196, 106, 0.25);
+  backdrop-filter: blur(12px);
+}
+
+[data-bg="deep-olive"] .brand-name {
+  color: #FAF7EE;
+}
+
+[data-bg="deep-olive"] .brand-badge {
+  background-color: #E9C46A;
+  color: #1A2608;
+  font-weight: 800;
+}
+
+[data-bg="deep-olive"] .header-search-input {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FAF7EE;
+  border-color: rgba(233, 196, 106, 0.25);
+}
+
+[data-bg="deep-olive"] .header-search-input:focus {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: #E9C46A;
+  box-shadow: 0 0 0 3px rgba(233, 196, 106, 0.25);
+}
+
+[data-bg="deep-olive"] .header-search-icon,
+[data-bg="deep-olive"] .header-search-input::placeholder {
+  color: #C5CFBE;
+}
+
+[data-bg="deep-olive"] .theme-toggle-btn,
+[data-bg="deep-olive"] .bg-toggle-btn {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(233, 196, 106, 0.25);
+  color: #FAF7EE;
+}
+
+[data-bg="deep-olive"] .theme-toggle-btn:hover,
+[data-bg="deep-olive"] .bg-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+[data-bg="deep-olive"] .app-sidebar {
+  background-color: rgba(31, 44, 9, 0.95);
+  border-right-color: rgba(233, 196, 106, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+[data-bg="deep-olive"] .sidebar-nav-item {
+  color: #DDE5D4;
+}
+
+[data-bg="deep-olive"] .sidebar-nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FAF7EE;
+}
+
+[data-bg="deep-olive"] .sidebar-nav-item.active {
+  background-color: #E9C46A;
+  color: #1A2608;
+  font-weight: 700;
+}
+
+[data-bg="deep-olive"] .sidebar-nav-item.active .nav-count {
+  background-color: #1A2608;
+  color: #E9C46A;
+}
+
+[data-bg="deep-olive"] .sidebar-section-title {
+  color: #B2C0A8;
+}
+
+[data-bg="deep-olive"] .category-item {
+  color: #DDE5D4;
+}
+
+[data-bg="deep-olive"] .category-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FAF7EE;
+}
+
+[data-bg="deep-olive"] .category-item.active {
+  background-color: rgba(233, 196, 106, 0.22);
+  color: #FAF7EE;
+}
+
+[data-bg="deep-olive"] .productivity-card {
+  background-color: rgba(24, 34, 7, 0.75);
+  border-color: rgba(233, 196, 106, 0.25);
+}
+
+[data-bg="deep-olive"] .productivity-title {
+  color: #FAF7EE;
+}
+
+[data-bg="deep-olive"] .productivity-percent {
+  color: #E9C46A;
+}
+
+[data-bg="deep-olive"] .productivity-hint {
+  color: #CBD6C4;
+}
+
+[data-bg="deep-olive"] .mobile-menu-toggle {
+  color: #FAF7EE;
+}
+

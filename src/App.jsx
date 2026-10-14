@@ -21,6 +21,7 @@ const STORAGE_KEYS = {
   TASKS: 'taskflow_tasks_v1',
   CATEGORIES: 'taskflow_categories_v1',
   THEME: 'taskflow_theme',
+  BG_MODE: 'taskflow_bg_mode',
 };
 
 export default function App() {
@@ -49,6 +50,30 @@ export default function App() {
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
+  // Background styling state ('deep' for Deep Olive #3A5311 Canvas, 'ambient' for Olive & Cream ambient gradient)
+  const [bgMode, setBgMode] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEYS.BG_MODE);
+      if (saved) return saved;
+    } catch (e) {
+      console.warn('Could not read bg mode from localStorage', e);
+    }
+    return 'deep'; // Default to deep olive #3A5311 canvas
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-bg', bgMode === 'deep' ? 'deep-olive' : 'ambient');
+    try {
+      localStorage.setItem(STORAGE_KEYS.BG_MODE, bgMode);
+    } catch (e) {
+      console.warn('Could not save bg mode to localStorage', e);
+    }
+  }, [bgMode]);
+
+  const toggleBgMode = () => {
+    setBgMode((prev) => (prev === 'deep' ? 'ambient' : 'deep'));
   };
 
   // Categories state
@@ -371,6 +396,8 @@ export default function App() {
         }}
         theme={theme}
         onToggleTheme={toggleTheme}
+        bgMode={bgMode}
+        onToggleBgMode={toggleBgMode}
         isMobileMenuOpen={isMobileMenuOpen}
         onToggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)}
         totalTasks={stats.totalCount}
