@@ -6,7 +6,7 @@ const getDateOffset = (days) => {
 };
 
 export const DEFAULT_CATEGORIES = [
-  { id: 'cat-work', name: 'Work', color: '#6366f1', icon: 'Briefcase' },
+  { id: 'cat-work', name: 'Work', color: '#2d6a68', icon: 'Briefcase' },
   { id: 'cat-personal', name: 'Personal', color: '#ec4899', icon: 'User' },
   { id: 'cat-study', name: 'Study', color: '#8b5cf6', icon: 'BookOpen' },
   { id: 'cat-health', name: 'Health', color: '#10b981', icon: 'Activity' },

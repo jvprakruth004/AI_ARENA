@@ -29,7 +29,7 @@ export default function TaskCard({
 
   // Find category meta
   const categoryMeta = categories?.find((c) => c.name === task.category);
-  const categoryColor = categoryMeta ? categoryMeta.color : '#6366f1';
+  const categoryColor = categoryMeta ? categoryMeta.color : '#2d6a68';
 
   const getPriorityBadge = (priority) => {
     switch (priority) {

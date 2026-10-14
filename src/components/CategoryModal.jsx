@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, FolderPlus, AlertCircle, Check } from 'lucide-react';
 
 const COLOR_PRESETS = [
-  '#6366f1', // Indigo
+  '#2d6a68', // Juniper
   '#ec4899', // Pink
   '#8b5cf6', // Violet
   '#10b981', // Emerald

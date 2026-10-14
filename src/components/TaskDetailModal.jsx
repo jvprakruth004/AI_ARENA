@@ -33,7 +33,7 @@ export default function TaskDetailModal({
   const isCompleted = task.status === 'Completed';
   const isOverdue = isTaskOverdue(task);
   const cat = categories?.find((c) => c.name === task.category);
-  const categoryColor = cat ? cat.color : '#6366f1';
+  const categoryColor = cat ? cat.color : '#2d6a68';
 
   return (
     <div
